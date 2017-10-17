@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="secondary">
     <ion-title>
-      Add item
+      Adicionar atleta
     </ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="close()">
@@ -17,17 +17,17 @@
   <ion-list>
 
     <ion-item>
-      <ion-label floating>Title</ion-label>
-        <ion-input type="text" [(ngModel)]="title"></ion-input>
+      <ion-label floating>Nome</ion-label>
+        <ion-input type="text" [(ngModel)]="nome"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Description</ion-label>
-        <ion-input type="text" [(ngModel)]="description"></ion-input>
+      <ion-label floating>Modalidade</ion-label>
+        <ion-input type="text" [(ngModel)]="modalidade"></ion-input>
     </ion-item>
 
   </ion-list>
 
-  <button full ion-button color="secondary" (click)="saveItem()">Save</button>
+  <button full ion-button color="secondary" (click)="saveItem()">Adicionar</button>
 
 </ion-content>

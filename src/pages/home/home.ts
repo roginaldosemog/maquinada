@@ -23,13 +23,7 @@ export class HomePage {
   }
 
   ionViewDidLoad(){
-/*
-    this.items = [
-      {title: 'hi1', description: 'test1'},
-      {title: 'hi2', description: 'test2'},
-      {title: 'hi3', description: 'test3'}
-    ];
-*/
+
   }
 
   addItem(){
@@ -49,6 +43,16 @@ export class HomePage {
 
   saveItem(item){
     this.items.push(item);
+    this.dataService.save(this.items);
+  }
+
+  deleteItem(item){
+    var i;
+    for(i = 0; i < this.items.length; i++) {
+      if(this.items[i] == item){
+        this.items.splice(i, 1);
+      }
+    }
     this.dataService.save(this.items);
   }
 

@@ -7,8 +7,8 @@ import { NavController, ViewController } from 'ionic-angular';
 })
 export class AddItem {
 
-  title: string;
-  description: string;
+  nome: string;
+  modalidade: string;
 
   constructor(public navCtrl: NavController, public view: ViewController) {
 
@@ -16,8 +16,8 @@ export class AddItem {
 
   saveItem(){
     let newItem = {
-      title: this.title,
-      description: this.description
+      nome: this.nome,
+      modalidade: this.modalidade
     };
 
     this.view.dismiss(newItem);
