@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, ViewController, Platform, ActionSheetController } from 'ionic-angular';
 import { Camera } from '@ionic-native/camera';
+import { Crop } from '@ionic-native/crop';
 
 @Component({
   selector: 'page-add-item',
@@ -18,10 +19,8 @@ export class AddItem {
     public view: ViewController,
     public platform: Platform,
     public actionsheetCtrl: ActionSheetController,
-    private camera: Camera
-  ){
-
-  }
+    private camera: Camera, private crop: Crop
+  ){}
 
   saveItem(){
     let newItem = {
@@ -40,26 +39,27 @@ export class AddItem {
 
   takePicture(){
     this.camera.getPicture({
-      destinationType: this.camera.DestinationType.DATA_URL,
-      targetWidth: 640,
-      targetHeight: 640,
+
     }).then((imageData) => {
-      this.base64Image = 'data:image/jpeg;base64,' + imageData;
-    }, (err) => {
-      console.log(err);
+        this.crop.crop(imageData, {quality: 75})
+        .then((newImage) => {
+          this.base64Image = newImage;
+        }, error => console.error("error", error));
+    }, function(error){
+      console.log(error);
     });
   }
 
   openGallery(){
     this.camera.getPicture({
-      destinationType: this.camera.DestinationType.DATA_URL,
-      targetWidth: 512,
-      targetHeight: 512,
       sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM
     }).then((imageData) => {
-      this.base64Image = 'data:image/jpeg;base64,' + imageData;
-    }, (err) => {
-      console.log(err);
+        this.crop.crop(imageData, {quality: 75})
+        .then((newImage) => {
+          this.base64Image = newImage;
+        }, error => console.error("error", error));
+    }, function(error){
+      console.log(error);
     });
   }
 

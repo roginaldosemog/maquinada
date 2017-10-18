@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
 import { Camera } from '@ionic-native/camera';
+import { Crop } from '@ionic-native/crop';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -35,6 +36,7 @@ import { Data } from '../providers/data';
     StatusBar,
     SplashScreen,
     Camera,
+    Crop,
     Data,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
