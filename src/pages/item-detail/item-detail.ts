@@ -9,6 +9,7 @@ export class ItemDetail {
 
   nome;
   modalidade;
+  fotoPerfil;
 
   constructor(public navParams: NavParams) {
 
@@ -17,6 +18,7 @@ export class ItemDetail {
   ionViewDidLoad() {
     this.nome = this.navParams.get('item').nome;
     this.modalidade = this.navParams.get('item').modalidade;
+    this.fotoPerfil = this.navParams.get('item').fotoPerfil;
   }
 
 }

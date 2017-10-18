@@ -14,13 +14,19 @@
 
 <ion-content>
   <ion-list>
+
     <ion-item-sliding *ngFor="let item of items">
       <ion-item (click)="viewItem(item)">
-        {{item.nome}}
+        <ion-avatar item-start>
+          <img [src]="item.fotoPerfil">
+        </ion-avatar>
+        <h2>{{item.nome}}</h2>
+        <p>{{item.modalidade}}</p>
       </ion-item>
       <ion-item-options side="right">
         <button ion-button color="danger" (click)="deleteItem(item)">Delete</button>
       </ion-item-options>
     </ion-item-sliding>
+
   </ion-list>
 </ion-content>

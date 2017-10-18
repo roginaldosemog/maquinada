@@ -62,4 +62,8 @@ export class HomePage {
     });
   }
 
+  log():void {
+    console.log('Your message here');
+  }
+
 }

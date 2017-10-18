@@ -1,3 +1,11 @@
-page-add-item {
-
+.md, .ios{
+  page-add-item {
+    img {
+      height: 160px !important;
+      width: 160px !important;
+      margin: auto !important;
+      display: block;
+      border-radius:50%;
+    }
+  }
 }

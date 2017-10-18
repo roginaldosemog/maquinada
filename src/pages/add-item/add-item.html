@@ -14,7 +14,10 @@
 
 
 <ion-content>
-  <ion-list>
+
+  <ion-list padding>
+
+    <img padding [src]="base64Image" (click)="openMenu()"/>
 
     <ion-item>
       <ion-label floating>Nome</ion-label>
