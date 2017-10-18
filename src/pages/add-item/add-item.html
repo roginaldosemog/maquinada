@@ -15,22 +15,25 @@
 
 <ion-content>
 
-  <ion-list padding>
+  <ion-list no-lines padding>
 
     <img padding [src]="base64Image" (click)="openMenu()"/>
 
-    <ion-item>
-      <ion-label floating>Nome</ion-label>
-        <ion-input type="text" [(ngModel)]="nome"></ion-input>
-    </ion-item>
+    <form [formGroup]="atlheteForm">
 
-    <ion-item>
-      <ion-label floating>Modalidade</ion-label>
-        <ion-input type="text" [(ngModel)]="modalidade"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label floating>Nome</ion-label>
+        <ion-input type="text" [(ngModel)]="nome" formControlName="name" [class.invalid]="!atlheteForm.controls.name.valid && (atlheteForm.controls.name.dirty || submitAttempt)"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="!atlheteForm.controls.name.valid  && (atlheteForm.controls.name.dirty || submitAttempt)">
+        <p>Digite um nome valido.</p>
+      </ion-item>
+
+    </form>
 
   </ion-list>
 
-  <button full ion-button color="secondary" (click)="saveItem()">Adicionar</button>
+  <button full ion-button color="secondary" (click)="saveItem()">Adicionar atleta</button>
 
 </ion-content>

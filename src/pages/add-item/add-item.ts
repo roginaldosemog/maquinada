@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, ViewController, Platform, ActionSheetController } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Camera } from '@ionic-native/camera';
 import { Crop } from '@ionic-native/crop';
 
@@ -9,9 +10,12 @@ import { Crop } from '@ionic-native/crop';
 })
 export class AddItem {
 
+  atlheteForm: FormGroup;
+
+  submitAttempt: boolean = false;
+
   nome: string;
-  modalidade: string;
-  //base64Image: string;
+  modalidade_id: number = 0;
   base64Image = 'assets/icone.png';
 
   constructor(
@@ -19,18 +23,29 @@ export class AddItem {
     public view: ViewController,
     public platform: Platform,
     public actionsheetCtrl: ActionSheetController,
-    private camera: Camera, private crop: Crop
-  ){}
+    public formBuilder: FormBuilder,
+    private camera: Camera,
+    private crop: Crop
+  ){
+    this.atlheteForm = formBuilder.group({
+      name: ['', Validators.compose([Validators.maxLength(30), Validators.required])]
+      //name: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])] //PERMITIR ACENTUAÇÕES
+    });
+  }
 
   saveItem(){
-    let newItem = {
-      nome: this.nome,
-      modalidade: this.modalidade,
-      fotoPerfil: this.base64Image
-    };
+    this.submitAttempt = true;
+    if(!this.atlheteForm.valid){
+      console.log("Erro, algo invalido");
+    } else {
+      let newItem = {
+        nome: this.nome,
+        modalidade_id: this.modalidade_id,
+        fotoPerfil: this.base64Image
+      };
 
-    this.view.dismiss(newItem);
-
+      this.view.dismiss(newItem);
+    }
   }
 
   close(){
@@ -41,10 +56,10 @@ export class AddItem {
     this.camera.getPicture({
 
     }).then((imageData) => {
-        this.crop.crop(imageData, {quality: 75})
-        .then((newImage) => {
-          this.base64Image = newImage;
-        }, error => console.error("error", error));
+      this.crop.crop(imageData, {quality: 75})
+      .then((newImage) => {
+        this.base64Image = newImage;
+      }, error => console.error("error", error));
     }, function(error){
       console.log(error);
     });
@@ -54,10 +69,10 @@ export class AddItem {
     this.camera.getPicture({
       sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM
     }).then((imageData) => {
-        this.crop.crop(imageData, {quality: 75})
-        .then((newImage) => {
-          this.base64Image = newImage;
-        }, error => console.error("error", error));
+      this.crop.crop(imageData, {quality: 75})
+      .then((newImage) => {
+        this.base64Image = newImage;
+      }, error => console.error("error", error));
     }, function(error){
       console.log(error);
     });
@@ -95,10 +110,6 @@ export class AddItem {
       ]
     });
     actionSheet.present();
-  }
-
-  log():void {
-    console.log('Your message here');
   }
 
 }

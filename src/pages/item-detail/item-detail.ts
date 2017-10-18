@@ -8,7 +8,7 @@ import { NavParams } from 'ionic-angular';
 export class ItemDetail {
 
   nome;
-  modalidade;
+  modalidade_id;
   fotoPerfil;
 
   constructor(public navParams: NavParams) {
@@ -17,7 +17,7 @@ export class ItemDetail {
 
   ionViewDidLoad() {
     this.nome = this.navParams.get('item').nome;
-    this.modalidade = this.navParams.get('item').modalidade;
+    this.modalidade_id = this.navParams.get('item').modalidade_id;
     this.fotoPerfil = this.navParams.get('item').fotoPerfil;
   }
 
