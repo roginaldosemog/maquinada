@@ -19,14 +19,14 @@
 
     <img padding [src]="base64Image" (click)="openMenu()"/>
 
-    <form [formGroup]="atlheteForm">
+    <form [formGroup]="athleteForm">
 
       <ion-item>
         <ion-label floating>Nome</ion-label>
-        <ion-input type="text" [(ngModel)]="nome" formControlName="name" [class.invalid]="!atlheteForm.controls.name.valid && (atlheteForm.controls.name.dirty || submitAttempt)"></ion-input>
+        <ion-input type="text" [(ngModel)]="nome" formControlName="name" [class.invalid]="!athleteForm.controls.name.valid && (athleteForm.controls.name.dirty || submitAttempt)"></ion-input>
       </ion-item>
 
-      <ion-item *ngIf="!atlheteForm.controls.name.valid  && (atlheteForm.controls.name.dirty || submitAttempt)">
+      <ion-item *ngIf="!athleteForm.controls.name.valid  && (athleteForm.controls.name.dirty || submitAttempt)">
         <p>Digite um nome valido.</p>
       </ion-item>
 

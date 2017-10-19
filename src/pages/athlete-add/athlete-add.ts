@@ -5,12 +5,12 @@ import { Camera } from '@ionic-native/camera';
 import { Crop } from '@ionic-native/crop';
 
 @Component({
-  selector: 'page-add-item',
-  templateUrl: 'add-item.html',
+  selector: 'page-athlete-add',
+  templateUrl: 'athlete-add.html',
 })
-export class AddItem {
+export class AthleteAdd {
 
-  atlheteForm: FormGroup;
+  athleteForm: FormGroup;
 
   submitAttempt: boolean = false;
 
@@ -27,7 +27,7 @@ export class AddItem {
     private camera: Camera,
     private crop: Crop
   ){
-    this.atlheteForm = formBuilder.group({
+    this.athleteForm = formBuilder.group({
       name: ['', Validators.compose([Validators.maxLength(30), Validators.required])]
       //name: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])] //PERMITIR ACENTUAÇÕES
     });
@@ -35,7 +35,7 @@ export class AddItem {
 
   saveItem(){
     this.submitAttempt = true;
-    if(!this.atlheteForm.valid){
+    if(!this.athleteForm.valid){
       console.log("Erro, algo invalido");
     } else {
       let newItem = {

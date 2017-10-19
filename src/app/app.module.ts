@@ -8,17 +8,19 @@ import { Camera } from '@ionic-native/camera';
 import { Crop } from '@ionic-native/crop';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { AddItem } from '../pages/add-item/add-item';
-import { ItemDetail } from '../pages/item-detail/item-detail';
+import { ModalityList } from '../pages/modality-list/modality-list';
+import { AthleteList } from '../pages/athlete-list/athlete-list';
+import { AthleteAdd } from '../pages/athlete-add/athlete-add';
+import { AthleteDetail } from '../pages/athlete-detail/athlete-detail';
 import { Data } from '../providers/data';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    AddItem,
-    ItemDetail
+    ModalityList,
+    AthleteList,
+    AthleteAdd,
+    AthleteDetail
   ],
   imports: [
     BrowserModule,
@@ -28,9 +30,10 @@ import { Data } from '../providers/data';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    AddItem,
-    ItemDetail
+    ModalityList,
+    AthleteList,
+    AthleteAdd,
+    AthleteDetail
   ],
   providers: [
     StatusBar,

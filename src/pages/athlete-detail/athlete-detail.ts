@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { NavParams } from 'ionic-angular';
 
 @Component({
-  selector: 'page-item-detail',
-  templateUrl: 'item-detail.html',
+  selector: 'page-athlete-detail',
+  templateUrl: 'athlete-detail.html',
 })
-export class ItemDetail {
+export class AthleteDetail {
 
   nome;
   modalidade_id;
