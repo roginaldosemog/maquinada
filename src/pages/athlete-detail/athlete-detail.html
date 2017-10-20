@@ -1,20 +1,18 @@
 <ion-header>
-  <ion-navbar color="secondary">
-    <ion-title>{{nome}}</ion-title>
+  <ion-navbar>
+    <ion-title text-uppercase>
+      {{mod_name}}
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list padding>
+  <ion-list>
 
     <img padding [src]="fotoPerfil"/>
 
-    <ion-item>
+    <ion-item text-center text-uppercase>
       {{nome}}
-    </ion-item>
-
-    <ion-item>
-      {{modalidade_id}}
     </ion-item>
 
   </ion-list>

@@ -38,7 +38,15 @@ $colors: (
   secondary:  #64f901,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  mq1:        #10FC04,
+  mq2:        #045804,
+  mq3:        #024203,
+  mq4:        #002600,
+  mq5:        #0c0c0d,
+  black:      #000000,
+  white:      #ffffff,
+  test:       #52cc29
 );
 
 
@@ -53,7 +61,9 @@ $colors: (
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-
+$toolbar-background: #52cc29;
+$toolbar-md-title-text-color: #222;
+$toolbar-md-height: 50px;
 
 
 // App Windows Variables
@@ -86,3 +96,6 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+$font-family-md-base: "Houschka";
+$font-family-ios-base: "Houschka";
+$font-family-wp-base: "Houschka";

@@ -1,11 +1,11 @@
 <ion-header>
-  <ion-navbar color="secundary">
-    <ion-title>
-      Atletas
+  <ion-navbar>
+    <ion-title text-uppercase>
+      {{modality.mod_name}}
     </ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="addItem()">
-        <ion-icon name="add-circle">
+        <ion-icon name="add">
         </ion-icon>
       </button>
     </ion-buttons>
@@ -16,7 +16,7 @@
   <ion-list>
 
     <ion-item-sliding *ngFor="let item of items">
-      <ion-item (click)="viewItem(item)">
+      <ion-item text-uppercase (click)="viewItem(item)">
         <ion-avatar item-start>
           <img src="{{item.fotoPerfil}}">
         </ion-avatar>

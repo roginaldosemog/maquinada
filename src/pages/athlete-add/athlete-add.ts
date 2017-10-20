@@ -15,8 +15,8 @@ export class AthleteAdd {
   submitAttempt: boolean = false;
 
   nome: string;
-  modalidade_id: number = 0;
-  base64Image = 'assets/icone.png';
+  mod_name: string;
+  base64Image = 'assets/user/user.png';
 
   constructor(
     public navCtrl: NavController,
@@ -40,7 +40,7 @@ export class AthleteAdd {
     } else {
       let newItem = {
         nome: this.nome,
-        modalidade_id: this.modalidade_id,
+        mod_name: this.mod_name,
         fotoPerfil: this.base64Image
       };
 

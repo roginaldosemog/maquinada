@@ -10,7 +10,7 @@ import { Data } from '../../providers/data';
 })
 export class AthleteList {
 
-  selectedModality: any;
+  modality: any;
   public items = [];
 
   constructor(
@@ -19,13 +19,13 @@ export class AthleteList {
     public modalCtrl: ModalController,
     public dataService: Data
   ){
-    this.selectedModality = navParams.get('item');
+    this.modality = navParams.get('item');
 
     //this.dataService.getData2('datab').then((todos) => {
-    this.dataService.getData(this.selectedModality.mod_name).then((todos) => {
+    this.dataService.getData(this.modality.mod_name).then((athletes) => {
 
-      if(todos){
-        this.items = todos;
+      if(athletes){
+        this.items = athletes;
       }
 
     });
@@ -61,7 +61,7 @@ export class AthleteList {
 
   saveItem(item){
     this.items.push(item);
-    this.dataService.save(this.selectedModality.mod_name, this.items);
+    this.dataService.save(this.modality.mod_name, this.items);
     //this.dataService.save(this.items);
   }
 
@@ -72,13 +72,14 @@ export class AthleteList {
         this.items.splice(i, 1);
       }
     }
-    this.dataService.save(this.selectedModality.mod_name, this.items);
+    this.dataService.save(this.modality.mod_name, this.items);
     //this.dataService.save(this.items);
   }
 
   viewItem(item){
     this.navCtrl.push(AthleteDetail, {
-      item: item
+      item: item,
+      mod_name: this.modality.mod_name
     });
   }
 

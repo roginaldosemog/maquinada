@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar color="secondary">
-    <ion-title>
-      Adicionar atleta
+  <ion-navbar>
+    <ion-title >
+      ADICIONAR ATLETA
     </ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="close()">
@@ -9,7 +9,7 @@
         </ion-icon>
       </button>
     </ion-buttons>
-  </ion-toolbar>
+  </ion-navbar>
 </ion-header>
 
 
@@ -22,18 +22,18 @@
     <form [formGroup]="athleteForm">
 
       <ion-item>
-        <ion-label floating>Nome</ion-label>
-        <ion-input type="text" [(ngModel)]="nome" formControlName="name" [class.invalid]="!athleteForm.controls.name.valid && (athleteForm.controls.name.dirty || submitAttempt)"></ion-input>
+        <ion-label floating>NOME</ion-label>
+        <ion-input text-uppercase type="text" [(ngModel)]="nome" formControlName="name" [class.invalid]="!athleteForm.controls.name.valid && (athleteForm.controls.name.dirty || submitAttempt)"></ion-input>
       </ion-item>
 
       <ion-item *ngIf="!athleteForm.controls.name.valid  && (athleteForm.controls.name.dirty || submitAttempt)">
-        <p>Digite um nome valido.</p>
+        <p>DIGITE UM NOME VALIDO</p>
       </ion-item>
 
     </form>
 
   </ion-list>
 
-  <button full ion-button color="secondary" (click)="saveItem()">Adicionar atleta</button>
+  <button block ion-button color="secondary" (click)="saveItem()">Adicionar atleta</button>
 
 </ion-content>

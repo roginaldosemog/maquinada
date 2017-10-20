@@ -1,11 +1,17 @@
 .md, .ios{
   page-athlete-detail {
-    img {
+    /*img {
       height: 256px !important;
       width: 256px !important;
       margin: auto !important;
       display: block;
       //border-radius:50%;
+    }*/
+    img {
+      width: 95%;
+      height: auto;
+      margin: auto;
+      display: block;
     }
   }
 }
